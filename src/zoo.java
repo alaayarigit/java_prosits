@@ -5,14 +5,14 @@ public class zoo {
     Animal[] animals;
     String name;
     String city;
-    int nbrCages;
+   final int nbrCages=25;
     int nbrAnimals;
-    public zoo (String name, String city, int nbrCages) {
+    public zoo (String name, String city) {
 
         animals = new Animal[nbrCages];
         this.name = name;
         this.city = city;
-        this.nbrCages = nbrCages;
+
 
     }
      public  void DisplayZoo(String name,String city , int nbrCages)
@@ -22,10 +22,7 @@ public class zoo {
          System.out.println(nbrCages);
 
      }
-    @Override
-    public String toString() {
-        return "Name: " + name + ", City: " + city + ",  Cages: " + nbrCages;
-    }
+
     boolean addAnimal(Animal animal) {
         if (searchAnimal(animal) != -1)
             return false;
@@ -62,6 +59,35 @@ public class zoo {
         return true;
     }
 
+    boolean isZooFull() {
+        int count = 0;
 
+        for (Animal animals : animals) {
+            count++;
+        }
+        if (count == nbrCages) return true;
+        return false;
+    }
+
+    zoo comparerZoo(zoo z1, zoo z2) {
+        int x = 0, y = 0;
+        for (int i = 0; i < z1.nbrAnimals; i++) {
+            x = i;
+            System.out.println(i);
+        }
+        for (int j = 0; j < z2.nbrAnimals; j++) {
+            y = j;
+            System.out.println(j);
+        }
+        if (x < y) {
+            return z2;
+        } else {
+            return z1;
+        }
+    }
+    @Override
+    public String toString() {
+        return "Name: " + name + ", City: " + city + ",  Cages: " + nbrCages;
+    }
 
 }

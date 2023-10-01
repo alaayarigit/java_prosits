@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
 Animal lion = new Animal("lion","bohmid",5,true);
-zoo myzoo = new zoo("zoo","bizert",25);
+zoo myzoo = new zoo("zoo","bizert");
 myzoo.name="zoo";
-myzoo.nbrCages=20;
+
         System.out.println("le "+myzoo.name+" va contenir "+ myzoo.nbrCages+" animaux maximum.");
         System.out.println("display using displayzoo()");
         myzoo.DisplayZoo("zoo","tunis",10);
