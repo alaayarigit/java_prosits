@@ -1,12 +1,36 @@
+import java.util.Scanner;
+import tn.esprit.gestion.entities.Animal;
 
 public class zoo {
 
 
     Animal[] animals;
-    String name;
-    String city;
-   final int nbrCages=25;
+    private String name;
+   private String city;
+   public final int nbrCages=25;
     int nbrAnimals;
+
+    public void setName(String name) {
+
+       if( name.isEmpty())
+           System.out.println("give the zoo name");
+       Scanner scanner= new Scanner(System.in);
+      name=scanner.nextLine();
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
     public zoo (String name, String city) {
 
         animals = new Animal[nbrCages];
@@ -23,31 +47,31 @@ public class zoo {
 
      }
 
-    boolean addAnimal(Animal animal) {
+    public boolean addAnimal(Animal animal) {
         if (searchAnimal(animal) != -1)
             return false;
-        if (nbrAnimals == nbrCages)
+        if (nbrAnimals == nbrCages && (!isZooFull()))
             return false;
         animals[nbrAnimals] = animal;
         nbrAnimals++;
         return true;
     }
-    void displayAnimals() {
+    public void displayAnimals() {
         System.out.println("Liste des animaux de " + name + ":");
         for (int i = 0; i < nbrAnimals; i++) {
             System.out.println(animals[i]);
         }
     }
 
-    int searchAnimal(Animal animal) {
+    public int searchAnimal(Animal animal) {
         int index = -1;
         for (int i = 0; i < nbrAnimals; i++) {
-            if (animals[i].name.equals(animal.name))
+            if (animals[i].getName().equals(animal.getName()))
                 return i;
         }
         return index;
     }
-    boolean removeAnimal(Animal animal) {
+    public boolean removeAnimal(Animal animal) {
         int indexAnimal = searchAnimal(animal);
         if (indexAnimal == -1)
             return false;

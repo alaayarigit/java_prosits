@@ -1,13 +1,15 @@
-import java.util.Scanner;
+package tn.esprit.gestion;
+import tn.esprit.gestion.entities.Animal;
+import zoo;
 
 public class Main {
     public static void main(String[] args) {
 
 Animal lion = new Animal("lion","bohmid",5,true);
-zoo myzoo = new zoo("zoo","bizert");
-myzoo.name="zoo";
+            zoo myzoo = new zoo("zoo", "bizert");
+            myzoo.setName("zoo");
 
-        System.out.println("le "+myzoo.name+" va contenir "+ myzoo.nbrCages+" animaux maximum.");
+        System.out.println("le "+myzoo.getName()+" va contenir "+ myzoo.nbrCages+" animaux maximum.");
         System.out.println("display using displayzoo()");
         myzoo.DisplayZoo("zoo","tunis",10);
         System.out.println("display with prosit");
