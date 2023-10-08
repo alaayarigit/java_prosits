@@ -1,11 +1,12 @@
 package tn.esprit.gestion;
 import tn.esprit.gestion.entities.Animal;
-import zoo;
+import tn.esprit.gestion.entities.zoo;
 
 public class Main {
     public static void main(String[] args) {
 
 Animal lion = new Animal("lion","bohmid",5,true);
+           zoo zooo =new zoo("zooo", "tunis");
             zoo myzoo = new zoo("zoo", "bizert");
             myzoo.setName("zoo");
 
@@ -24,6 +25,7 @@ Animal lion = new Animal("lion","bohmid",5,true);
         Animal chien = new Animal("morad", "chien", 2, true);
         System.out.println(myzoo.searchAnimal(lion));
         System.out.println(myzoo.removeAnimal(chien));
+        /* comparerzoo(myzoo,zooo); */
         myzoo.displayAnimals();
 
 

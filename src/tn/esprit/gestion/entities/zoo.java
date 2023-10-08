@@ -1,5 +1,6 @@
+package tn.esprit.gestion.entities;
+
 import java.util.Scanner;
-import tn.esprit.gestion.entities.Animal;
 
 public class zoo {
 
@@ -93,7 +94,7 @@ public class zoo {
         return false;
     }
 
-    zoo comparerZoo(zoo z1, zoo z2) {
+    public zoo comparerZoo(zoo z1, zoo z2) {
         int x = 0, y = 0;
         for (int i = 0; i < z1.nbrAnimals; i++) {
             x = i;
