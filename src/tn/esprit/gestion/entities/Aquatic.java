@@ -1,17 +1,42 @@
 package tn.esprit.gestion.entities;
+import java.util.Objects;
 
-public class Aquatic extends Animal {
-   public String habitat ;
-   float swimspeed;
-   float swmindeepth;
-    public Aquatic(String family, String name, int age, boolean isMammal, float swimspeed, float swimindepth) {
-        super(family, name, age, isMammal);
-        this.swimspeed=swimspeed;
-        this.swmindeepth=swimindepth;
+public abstract   class Aquatic extends Animal {
+
+    protected String habitat;
+
+
+
+
+    public Aquatic(String Family, String name ,int age ,Boolean isMammal,String habitat) {
+        super(Family,name,age,isMammal);
+        this.habitat=habitat;
     }
-public void isswiming()
-{
-    System.out.println(family+"is swiming");
-}
+
+    @Override
+    public String toString() {
+        return super.toString()+"habitat: "+habitat;
+
+    }
+
+    @Override
+
+    public boolean equals(Object o) {
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
+        if (!super.equals(o)) {return false;}
+        Aquatic aquatic = (Aquatic) o;
+        return Objects.equals(getName(), aquatic.getName()) &&
+                Objects.equals(getAge(),aquatic.getAge()) &&
+                Objects.equals(habitat, aquatic.habitat);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(habitat);
+    }
+
+    public abstract void swim();
 
 }

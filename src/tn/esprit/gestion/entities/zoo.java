@@ -10,6 +10,8 @@ public class zoo {
    private String city;
    public final int nbrCages=25;
     int nbrAnimals;
+    Aquatic[] aquaticAnimal ;
+    int nbraquaticanim;
 
     public void setName(String name) {
 
@@ -110,6 +112,58 @@ public class zoo {
             return z1;
         }
     }
+    public void addAquaticAnimal(Aquatic aquatic){
+        if (nbraquaticanim<10)
+        { aquaticAnimal[nbraquaticanim]=aquatic;
+            nbraquaticanim++;
+            System.out.println("added succesfuly");
+
+        }
+        else
+        {
+            System.out.println("is full ");
+        }
+
+
+
+    }
+    public float maxPenguinSwimmingDepth(  ){
+
+        float maxdepth=0;
+        for (int i=0; i<nbraquaticanim;i++){
+            if(aquaticAnimal[i] instanceof Penguin   ){
+                Penguin penguin =(Penguin) aquaticAnimal[i];
+                float swimmingDepth = penguin.getSwimmingDepth();
+                if(swimmingDepth>maxdepth){
+                    maxdepth=swimmingDepth;
+                }
+            }
+
+        }
+
+        return maxdepth;
+    }
+
+    public void displayNumberOfAquaticsByType(){
+        int nbrpenguin=0;
+        int nbrdoplhin=0;
+        for(int i=0 ; i<nbraquaticanim;i++){
+            if(aquaticAnimal[i] instanceof Penguin   ){
+                nbrpenguin++;
+            }
+            else
+            {
+                nbrdoplhin++;
+            }
+
+
+        }
+        System.out.println("numbre of penguin: " + nbrdoplhin);
+        System.out.println("numbre of penguin: " + nbrpenguin);
+    }
+
+
+
     @Override
     public String toString() {
         return "Name: " + name + ", City: " + city + ",  Cages: " + nbrCages;
