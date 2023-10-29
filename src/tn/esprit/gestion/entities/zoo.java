@@ -1,6 +1,6 @@
 package tn.esprit.gestion.entities;
-
 import java.util.Scanner;
+
 
 public class zoo {
 
@@ -50,15 +50,22 @@ public class zoo {
 
      }
 
-    public boolean addAnimal(Animal animal) {
-        if (searchAnimal(animal) != -1)
-            return false;
-        if (nbrAnimals == nbrCages && (!isZooFull()))
-            return false;
-        animals[nbrAnimals] = animal;
-        nbrAnimals++;
-        return true;
-    }
+    public void addAnimal(Animal animal) throws ZooFullExeption,InvalidAgeException {
+        if (searchAnimal(animal) != -1) {
+
+                if (isZooFull()) {
+                    throw new ZooFullExeption("Zoo is full");
+                }
+                if (animal.getAge() < 0) {
+                    throw new InvalidAgeException("Age is illogical");
+                }
+                animals[nbrAnimals] = animal;
+                nbrAnimals++;
+            }
+        }
+
+
+
     public void displayAnimals() {
         System.out.println("Liste des animaux de " + name + ":");
         for (int i = 0; i < nbrAnimals; i++) {
@@ -68,10 +75,8 @@ public class zoo {
 
     public int searchAnimal(Animal animal) {
         int index = -1;
-        for (int i = 0; i < nbrAnimals; i++) {
-            if (animals[i].getName().equals(animal.getName()))
-                return i;
-        }
+        for (int i = 0; i < nbrAnimals; i++)
+            if (animals[i].getName().equals(animal.getName())) return i;
         return index;
     }
     public boolean removeAnimal(Animal animal) {
@@ -93,8 +98,8 @@ public class zoo {
             count++;
         }
         if (count == nbrCages) return true;
-        return false;
-    }
+        else return false;
+        }
 
     public zoo comparerZoo(zoo z1, zoo z2) {
         int x = 0, y = 0;

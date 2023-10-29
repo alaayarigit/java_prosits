@@ -7,7 +7,13 @@ public class Main {
 
             zoo myzoo = new zoo("zoo", "bizert");
             myzoo.setName("zoo");
-
+            Animal dog = new Animal("husky","mounir",-2,true);
+            Animal cat = new Animal("furry","monjia",1,true);
+try {
+   myzoo.addAnimal(dog);
+}catch (InvalidAgeException |ZooFullExeption i)
+{System.out.println(i.getMessage());
+}
 
 
         Aquatic dolphin = new Dolphin("dolphin","morad",2,true,"dar",14);
@@ -21,6 +27,7 @@ public class Main {
         dolphin.swim();
         penguin.swim();
         myzoo.maxPenguinSwimmingDepth();
+        System.out.println(myzoo);
 
 
 
